@@ -188,7 +188,7 @@ public class joc extends jocBase {
         // setDefaultCloseOperation(EXIT_ON_CLOSE);
         // setSize(600, 670);
         setLocationRelativeTo(null); // Centrare pe ecran
-
+        setVisible(true);
         // Adăugăm un buton "Back" în partea de sus a paginii de joc
         
     }

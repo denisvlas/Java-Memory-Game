@@ -93,8 +93,8 @@ contentPane.add(nameField);
         if (playerName.length() < 3 || playerName.equals("Enter your name") ){
             JOptionPane.showMessageDialog(this, "Name must be at least 3 characters long.", "Invalid Name", JOptionPane.ERROR_MESSAGE);
         } else {
-            dispose(); // Închide fereastra de start
-            new joc(playerName).setVisible(true); // Deschide jocul
+            dispose(); 
+            new joc(playerName);
         }
     }
 
