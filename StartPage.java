@@ -194,6 +194,7 @@ public class StartPage extends JFrame {
             }
 
             public void mouseExited(java.awt.event.MouseEvent evt) {
+                
                 startButton.setBackground(new Color(0, 128, 0));
             }
         });
