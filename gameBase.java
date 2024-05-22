@@ -46,7 +46,7 @@ abstract class gameBase extends JFrame {
     protected String playerName;
     protected JLabel playerNameLabel;
     JPanel backButtonPanel = new JPanel(new BorderLayout());
-
+    protected int speed=500;
 
     public gameBase() {
         setTitle("Memory Game");

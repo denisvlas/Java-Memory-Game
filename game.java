@@ -9,7 +9,6 @@ public class game extends gameBase {
         super.backButton.addActionListener(this::goBack);
         this.userList = userList;
         this.playerName = playerName;
-       
 
         currentUser = userList.getUser(playerName);
         if (currentUser != null) {
@@ -179,7 +178,7 @@ public class game extends gameBase {
     @Override
     protected void resetButtonColors() {
         playerTurn = false;
-        Timer timer = new Timer(500, e -> {
+        Timer timer = new Timer(speed, e -> {
             for (JButton button : buttons) {
                 button.setBackground(Color.gray);
                 button.setText("");
@@ -192,19 +191,16 @@ public class game extends gameBase {
 
     @Override
     protected void showPattern() {
-    System.out.println("showPattern");
+        System.out.println("showPattern");
+        System.out.println(speed);
+
         playerTurn = false;
         Timer timer = new Timer(600, e -> {
             for (int i = 0; i < pattern.size(); i++) {
                 JButton button = pattern.get(i);
                 if (button != null) {
                     button.setBackground(new Color(255, 255 - level * 30, 0));
-                    Timer colorTimer = new Timer(400, e1 -> {
-                        button.setBackground(Color.GRAY);
-                        revalidate();
-                    });
-                    colorTimer.setRepeats(false);
-                    colorTimer.start();
+                    resetButtonColors();
                 }
             }
             text.setText((counter) + "/" + turn);
@@ -235,10 +231,13 @@ public class game extends gameBase {
             showPattern();
 
         }
+        if (speed > 100)
+            speed -= 50;
     }
 
     @Override
     protected void resetGame() {
+        speed = 500;
         level = 0;
         initialCols = 2;
         initialRows = 2;
